@@ -1,35 +1,40 @@
 import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import './styles.scss'
+// import { Container } from './styles';
 
-const Navbar = () => (
-    <nav>
-        <div className="row bg-primary main-nav">
+const Navbar: React.FC = () => {
+    return (
+        <nav className="row bg-primary navbar-container" >
             <div className="col-2">
-                <a href="link" className="nav-logo-text">
-                    <h4>DS Catalog</h4>
-                </a>
+                <Link to="/" className="nav-logo-text">
+                    <h4>DS CATALOG</h4>
+                </Link>
             </div>
+
             <div className="col-6 offset-2">
                 <ul className="main-menu">
                     <li>
-                        <a href="link" className="active">
-                            HOME
-                        </a>
+                        <NavLink to="/" exact activeClassName="active">
+                            Home
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="link">
-                            CATALÓGO
-                        </a>
+                        <NavLink to="/catalog" activeClassName="active">
+                            Catálogo
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="link">
-                            ADMIN
-                        </a>
+                        <NavLink to="/admin" activeClassName="active">
+                            Admin
+                        </NavLink>
                     </li>
                 </ul>
             </div>
-        </div>
-    </nav>
-);
+        </nav>
 
-export default Navbar
+
+    );
+}
+
+export default Navbar;
