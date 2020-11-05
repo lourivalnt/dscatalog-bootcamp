@@ -1,25 +1,30 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Navbar from './core/components/Navbar';
-import Admin from './pages/Admin';
 import Catalog from './pages/Catalog';
 import Home from './pages/Home';
+import Admin from './pages/Admin';
+import Navbar from './core/components/Navbar';
+import ProductDetails from './pages/Catalog/components/ProductDetails';
+
 
 const Routes = () => (
-        <BrowserRouter>
+    <BrowserRouter>
         <Navbar />
             <Switch>
-                <Route path="/" exact> 
-                    <Home /> 
+                <Route path="/" exact>
+                    <Home />
                 </Route>
-                <Route path="/catalog"> 
-                    <Catalog /> 
+                <Route path="/products" exact>
+                    <Catalog />
                 </Route>
-                <Route path="/admin"> 
-                    <Admin /> 
+                <Route path="/products/:productId">
+                    <ProductDetails />
+                </Route>
+                <Route path="/admin">
+                    <Admin />
                 </Route>
             </Switch>
-        </BrowserRouter>
+    </BrowserRouter>
 );
 
 export default Routes;
